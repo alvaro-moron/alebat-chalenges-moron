@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import arrayItems from '../components/arrayItems/arrayItems.vue'
-import bannerTop from '../components/bannerTop/bannerTop.vue'
+import arrayItems from '@/components/arrayItems.vue'
+import bannerTop from '@/components/bannerTop.vue'
 import { ref, onMounted } from 'vue'
 
 const items = ref([])

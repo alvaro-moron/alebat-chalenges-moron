@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import bannerTop from '../components/bannerTop/bannerTop.vue'
+import bannerTop from '@/components/bannerTop.vue'
 
 const route = useRoute()
 const id = route.params.id

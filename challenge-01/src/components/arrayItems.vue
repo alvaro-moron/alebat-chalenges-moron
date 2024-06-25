@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import itemCard from '../itemCard/itemCard.vue'
+import itemCard from '@/components/itemCard.vue'
 
 const props = defineProps({
   items: Array
