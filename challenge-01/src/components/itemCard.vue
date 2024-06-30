@@ -1,7 +1,13 @@
 <script setup lang="ts">
-const props = defineProps({
-  item: Object
-})
+import type { Item } from '@/types/types'
+
+// const props = defineProps<{ item: Item }>({
+//   item: Object as () => Item
+// })
+
+const props = defineProps<{
+  item: Item
+}>()
 </script>
 
 <template>

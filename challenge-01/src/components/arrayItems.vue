@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import itemCard from '@/components/itemCard.vue'
+import type { Item } from '@/types/types'
 
-const props = defineProps({
-  items: Array
-})
+const props = defineProps<{
+  items: Item[]
+}>()
 </script>
 
 <template>
