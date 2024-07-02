@@ -1,43 +1,21 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import bannerTop from '@/components/bannerTop.vue'
+import bannerTop from '@/components/BannerTop.vue'
 import type { Item } from '@/types/types'
+import fetchItems from '@/composables/fetchItems'
+import { URL } from '@/constants'
 
 const route = useRoute()
-let id: number
-const idParam = Number(route.params.id)
-
-if (!isNaN(idParam)) {
-  id = idParam
-} else {
-  console.error('Invalid id:', route.params.id)
-}
-
+const id: number = Number(route.params.id)
 const itemDetails = ref<Item>()
-
-const fetchItemDetails = async (id: number) => {
-  try {
-    const response = await fetch('/data/items.json')
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    const data: Item[] = await response.json()
-    const item = data.find((item) => item.id === id)
-    if (item) {
-      return item
-    } else {
-      throw new Error(`Item with id ${id} not found`)
-    }
-  } catch (error) {
-    console.error('Error fetching item details:', error)
-    throw error
-  }
-}
 
 onMounted(async () => {
   try {
-    itemDetails.value = await fetchItemDetails(id)
+    const fetchedItem = await fetchItems(URL, id)
+    if (!Array.isArray(fetchedItem)) {
+      itemDetails.value = fetchedItem
+    }
   } catch (error) {
     console.error('Failed to fetch item details:', error)
   }
