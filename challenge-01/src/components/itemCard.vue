@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import type { Item } from '@/types/types'
 
-// const props = defineProps<{ item: Item }>({
-//   item: Object as () => Item
-// })
-
 const props = defineProps<{
   item: Item
 }>()
