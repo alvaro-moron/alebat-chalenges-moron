@@ -43,7 +43,7 @@ class GenerateNotification {
     const container = document.getElementById('toast-container')
     if (!container) return
 
-    // const icon = this.searchIcon(id);
+    const icon = this.searchIcon(id)
     const message = this.searchMessage(id)
 
     const notificationElement = document.createElement('div')
@@ -51,10 +51,11 @@ class GenerateNotification {
     notificationElement.classList.add('fadein')
     notificationElement.style.backgroundColor = `var(--${id})`
 
-    // const iconElement = document.createElement('span');
-    // iconElement.classList.add('icon');
-    // iconElement.textContent = icon;
-    // notificationElement.appendChild(iconElement);
+    const iconElement = document.createElement('img')
+    iconElement.src = icon
+    iconElement.title = message + ' image'
+    iconElement.alt = message + ' image'
+    notificationElement.appendChild(iconElement)
 
     const messageElement = document.createElement('span')
     messageElement.textContent = message
