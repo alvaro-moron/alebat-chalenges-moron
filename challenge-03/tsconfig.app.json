@@ -7,6 +7,8 @@
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+    "outDir": "./out-tsc/app",
+    "types": [],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -28,7 +30,8 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-    /* Bundler mode */
-
+  "extends": "./tsconfig.json",
+  "files": ["src/main.ts", "src/App.vue"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  /* Bundler mode */
 }
